@@ -49,31 +49,7 @@
     "Exported value in 2022": 3073605,
     "": ""
   },
-  {
-    "Code": "03",
-    "Product label": "Seafood Products",
-    "Exported value in 2003": 1112529,
-    "Exported value in 2004": 1371903,
-    "Exported value in 2005": 1470351,
-    "Exported value in 2006": 1508331,
-    "Exported value in 2007": 1688877,
-    "Exported value in 2008": 1719068,
-    "Exported value in 2009": 1487170,
-    "Exported value in 2010": 1535284,
-    "Exported value in 2011": 1833101,
-    "Exported value in 2012": 1784203,
-    "Exported value in 2013": 1833212,
-    "Exported value in 2014": 1790605,
-    "Exported value in 2015": 1613581,
-    "Exported value in 2016": 1682174,
-    "Exported value in 2017": 1630791,
-    "Exported value in 2018": 1923064,
-    "Exported value in 2019": 2030895,
-    "Exported value in 2020": 1928576,
-    "Exported value in 2021": 2283371,
-    "Exported value in 2022": 2333471,
-    "": ""
-  },
+ 
   {
     "Code": 72,
     "Product label": "Iron and steel",
@@ -376,7 +352,7 @@
   },
   {
     "Code": 30,
-    "Product label": "Pharmaceutical products",
+    "Product label": "Medicine",
     "Exported value in 2003": 66927,
     "Exported value in 2004": 126779,
     "Exported value in 2005": 91835,

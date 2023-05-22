@@ -148,7 +148,7 @@ async function drawGraph() {
   const xScale = d3
     .scaleLinear()
     .domain([0, d3.max(topData, (d) => d[year])])
-    .range([0, graphWidth - 200]); // Adjust the range to fit within the SVG
+    .range([0, graphWidth - 300]); // Adjust the range to fit within the SVG
 
   const yScale = d3
     .scaleBand()
@@ -164,7 +164,7 @@ async function drawGraph() {
   svg2
     .append("g")
     .attr("class", "x axis")
-    .attr("transform", `translate(100, ${graphHeight - 200})`)
+    .attr("transform", `translate(150, ${graphHeight - 200})`)
     .call(xAxis)
     .selectAll("text")
     .style("text-anchor", "end")
@@ -177,7 +177,7 @@ async function drawGraph() {
   svg2
     .append("g")
     .attr("class", "y axis")
-    .attr("transform", "translate(100,0)")
+    .attr("transform", "translate(150,0)")
     .call(yAxis)
     .selectAll("text")
     .style("font-size", "14px");
@@ -189,7 +189,7 @@ async function drawGraph() {
     .enter()
     .append("rect")
     .attr("class", "bar")
-    .attr("x", 100)
+    .attr("x", 150)
     .attr("y", (d) => {
       const barHeight = yScale.bandwidth() * 0.8; // Adjust the factor as desired
       return yScale(d["Product label"]) + (yScale.bandwidth() - barHeight) / 2;
@@ -205,7 +205,7 @@ async function drawGraph() {
     .enter()
     .append("text")
     .attr("class", "label")
-    .attr("x", (d) => xScale(d[year]) + 105)
+    .attr("x", (d) => xScale(d[year]) + 155)
     .attr("y", (d) => yScale(d["Product label"]) + yScale.bandwidth() / 2)
     .attr("dy", "0.35em")
     .text((d) => d[year])
