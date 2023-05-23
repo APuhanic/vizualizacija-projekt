@@ -15,23 +15,26 @@
 
 	</div>
 	<div class="graph">
-		<p><span id="year-label">2022</span> </p>
 		<div id="container2">
-			<input type="range" id="year-slider" min="2003" max="2022" value="2022">
-			<p><span id="country-label"> Croatia </span></p>
-			<div class="data-dropdown">
-				<button class="data-button">Show: <span class="current-data"> Export</span>
-				</button>
-				<div class="dropdown-content">
-					<a href="#" data="export">Export</a>
-					<a href="#" data="import">Import</a>
-				
+			<div class="svg-header">
+				<p><span id="country-label">Croatia -</span><span id="year-label">2022</span></p>
+
+				<div class="data-dropdown">
+					<button class="data-button">Show: <span class="current-data"> Export</span>
+					</button>
+					<div class="dropdown-content">
+						<a href="#" data="export">Export</a>
+						<a href="#" data="import">Import</a>
+
+					</div>
 				</div>
+			</div>
+			<div class="year-slider">
+				<input type="range" id="year-slider" min="2003" max="2022" value="2022">
 			</div>
 		</div>
 		<script src="script.js"></script>
 	</div>
-
 </body>
 
 </html>

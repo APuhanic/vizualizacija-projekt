@@ -25,17 +25,61 @@ body {
   width: 50%;
   height: 100%;
   float: right;
+  background-color: rgba(8, 81, 156, 0.2);
+
+
 }
 #year-slider {
-  width: 100%;
+  width: 90%;
   height: 3em;
-}
+  justify-content: center;
 
+}
+#year-label{
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 1em;
+  margin-left: 0.5em;
+}
+.year-slider{
+  display: flex;
+  flex-direction: row;
+  justify-content:center;
+  align-items: center;
+}
+#country-label{
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 1em;
+  margin-left: 2em;
+}
+.data-button{
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+  margin-right: 3em;
+  background-color: rgba(8, 81, 156, 0);
+
+  border: 1px solid rgba(8, 81, 156, 1);
+  color: rgba(8, 81, 156, 1);
+  padding: 0.5em 1em;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 1em;
+}
+.svg-header{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  align-items: center;
+}
 /* CSS to style the dropdown */
 .sort-dropdown {
   display: inline-block;
 }
-
 .dropdown-content {
   display: none;
   position: absolute;
@@ -45,18 +89,17 @@ body {
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
-
 .dropdown-content a {
   color: #333;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
 }
-
 .dropdown-content a:hover {
   background-color: #f1f1f1;
-}
+  border-radius: 1em;
 
+}
 .dropdown-content.show {
   display: block;
 }

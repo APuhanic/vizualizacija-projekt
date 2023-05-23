@@ -5,7 +5,7 @@ const COUNTRY_LABEL = document.getElementById("country-label");
 const SORT_BUTTON = document.querySelector(".data-button");
 const DROPDOWN_CONTENT = document.querySelector(".dropdown-content");
 const CURRENT_SORT = document.querySelector(".current-data");
-
+const backgroundColor = "rgba(8, 81, 156, 0.2)";
 // Define variables
 let currentData = "export";
 let selectedYear = 2022; // Set the default year
@@ -31,7 +31,7 @@ const svg = d3
   .append("svg")
   .attr("width", width)
   .attr("height", height)
-  .style("background-color", "rgba(8, 81, 156, 0.2)");
+  .style("background-color", backgroundColor);
 
 // Create a group for zoomable elements
 const zoomGroup = svg.append("g");
@@ -120,8 +120,7 @@ async function drawGraph() {
     .select("#container2")
     .append("svg")
     .attr("width", graphWidth)
-    .attr("height", graphHeight)
-    .style("background-color", "rgba(118, 81, 156, 0.2)");
+    .attr("height", graphHeight);
 
   // Load the data from the corresponding JSON file
   const jsonFile = `/data/${currentData}/json/${clickedCountry}.json`;
@@ -181,6 +180,38 @@ async function drawGraph() {
     .call(yAxis)
     .selectAll("text")
     .style("font-size", "14px");
+  // Add grid lines for each value on the x-axis
+  svg2
+    .append("g")
+    .attr("class", "grid")
+    .attr("transform", `translate(150, ${graphHeight - 200})`)
+    //add opacity to lines
+    .attr("opacity", 0.1)
+    .call(
+      d3
+        .axisBottom(xScale)
+        .tickSize(-graphHeight + 250)
+        .tickFormat("")
+    );
+  //add a title for x axis
+  svg2
+    .append("text")
+    .attr("class", "x axis")
+    .attr("transform", `translate(${graphWidth *0.8}, ${graphHeight - 100})`)
+    .style("text-anchor", "middle")
+    .style("font-size", "16px")
+    .style("font-weight", "bold")
+    .text("Value in $ thousands");
+
+  //add a title for y axis above the axis
+  svg2
+    .append("text")
+    .attr("class", "y axis")
+    .attr("transform", `translate(100, ${25}) `)
+    .style("text-anchor", "middle")
+    .style("font-size", "16px")
+    .style("font-weight", "bold")
+    .text("Products");
 
   // Create horizontal bars
   const bars = svg2
@@ -189,7 +220,7 @@ async function drawGraph() {
     .enter()
     .append("rect")
     .attr("class", "bar")
-    .attr("x", 150)
+    .attr("x", 151)
     .attr("y", (d) => {
       const barHeight = yScale.bandwidth() * 0.8; // Adjust the factor as desired
       return yScale(d["Product label"]) + (yScale.bandwidth() - barHeight) / 2;
