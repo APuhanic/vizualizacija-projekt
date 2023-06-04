@@ -33,6 +33,26 @@ const svg = d3
   .attr("height", height)
   .style("background-color", backgroundColor);
 
+//tooltip
+const tooltip = svg
+  .append("g")
+  .attr("class", "tooltip")
+  .style("display", "none");
+
+tooltip
+  .append("rect")
+  .attr("width", 100)
+  .attr("height", 20)
+  .attr("fill", "white");
+
+tooltip
+  .append("text")
+  .attr("x", 50)
+  .attr("y", 10)
+  .attr("dy", "0.35em")
+  .style("text-anchor", "middle")
+  .style("font-size", "12px");
+
 // Create a group for zoomable elements
 const zoomGroup = svg.append("g");
 
@@ -43,7 +63,7 @@ DROPDOWN_CONTENT.addEventListener("click", handleDropdownClick);
 
 // Load GeoJSON data
 d3.json("europe_features.json").then(function (json) {
-  const countries = zoomGroup
+    countries = zoomGroup
     .selectAll("path")
     .data(json.features)
     .enter()
@@ -63,7 +83,7 @@ d3.json("europe_features.json").then(function (json) {
   drawGraph();
 });
 
-// Event handlers
+// Event handlers 
 function handleSliderInput() {
   selectedYear = +this.value;
   YEAR_LABEL.textContent = selectedYear;
@@ -91,17 +111,18 @@ function handleCountryClick(event, d) {
 
 function handleCountryMouseOver(event, d) {
   d3.select(this).attr("fill", "orange");
-  svg
-    .append("text")
-    .attr("class", "country-label")
-    .attr("x", 10)
-    .attr("y", 20)
-    .text(d.properties.name);
+  tooltip
+    .style("display", "block")
+    .attr("transform", `translate(${event.pageX},${event.pageY - 20})`);
+  tooltip.select("text").text(d.properties.name);
+
+  // Move the tooltip to the front
+  tooltip.raise();
 }
 
 function handleCountryMouseOut(event, d) {
   d3.select(this).attr("fill", "rgba(8, 81, 156, 0.6)");
-  svg.select(".country-label").remove();
+  tooltip.style("display", "none");
 }
 
 function handleZoom(event) {
@@ -197,7 +218,7 @@ async function drawGraph() {
   svg2
     .append("text")
     .attr("class", "x axis")
-    .attr("transform", `translate(${graphWidth *0.8}, ${graphHeight - 100})`)
+    .attr("transform", `translate(${graphWidth * 0.8}, ${graphHeight - 100})`)
     .style("text-anchor", "middle")
     .style("font-size", "16px")
     .style("font-weight", "bold")

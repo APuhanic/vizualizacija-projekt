@@ -6,7 +6,9 @@ h1 {
   margin: 0;
   padding-bottom: 10px;
 }
-
+.tooltip {
+  pointer-events: none; /* Prevent the tooltip from blocking mouse events */
+}
 html,
 body {
   margin: 0;
