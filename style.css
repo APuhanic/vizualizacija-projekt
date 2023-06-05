@@ -7,7 +7,7 @@ h1 {
   padding-bottom: 10px;
 }
 .tooltip {
-  pointer-events: none; /* Prevent the tooltip from blocking mouse events */
+  pointer-events: none; 
 }
 html,
 body {
@@ -78,7 +78,6 @@ body {
   justify-content:space-between;
   align-items: center;
 }
-/* CSS to style the dropdown */
 .sort-dropdown {
   display: inline-block;
 }
