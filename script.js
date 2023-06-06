@@ -141,6 +141,7 @@ async function drawGraph() {
 
   // učitavanje podataka
   const jsonFile = `/data/${currentData}/json/${clickedCountry}.json`;
+  //if file doesnt exist print to div that theere is no data for that country
   const data = await d3.json(jsonFile);
 
   // izabiranje godine
